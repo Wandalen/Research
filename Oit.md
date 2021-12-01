@@ -10,9 +10,8 @@ Pros:
  - Support older hardware
 Cons:
  - Can induce a significant overhead on the geometry processing stage and rasterization, cumullative over all iteration steps.
- - Complexity O(n/2)
 
-A linear complexity algorithm to capture and sort multiple fragment in single pass. Multiple rasterizations of the scenes.Produces good images but is too slow for scenes with many layers.
+A linear complexity algorithm to capture and sort multiple fragment in single pass. Multiple rasterizations of the scenes. Produces good images but is too slow for scenes with many layers.
 
 ### Dual Depth Peeling 
 [Paper](https://my.eng.utah.edu/~cs5610/handouts/DualDepthPeeling.pdf)
@@ -30,13 +29,11 @@ performance.
 [Cesium sample](http://bagnell.github.io/cesium/Apps/Sandcastle/gallery/OIT.html)
 [Video](https://youtu.be/axvmoEqcTp8)
 
-Decent performance. Requires output to two render targets.
+Decent performance and image quality. Contains three passes. Requires to render opaque and transparent object separately. Devices must support output to multiple render targets.
 
 ### Multi-Layer Depth Peeling via Fragment Sort
 [Paper](https://www.microsoft.com/en-us/research/wp-content/uploads/2006/06/tr-2006-81.pdf)
 [Sample](?)
-
-The dual depth peeling method was extended to extract two fragments per uniform depth bucket in each iteration. This reduced number of required iterations.
 
 Extended version of original DP. Reduces the computation time significantly for real scenes.
 
