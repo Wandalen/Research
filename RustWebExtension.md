@@ -1,42 +1,46 @@
-# Helpfull tools to create a web extension in Rust
+## General-purpose official resources
+# :mortar_board: Helpfull tools to create a browser extension in Rust
 
-## Crates
+Curated collection of resources to create browser extension using Rust  _:crab:_ 
 
-### [wasm-bindgen](https://crates.io/crates/wasm-bindgen)
+## :package: Crates
 
-This is the main crate for creating web plugins in Rust. It provides a bridge between JavaScript and WebAssembly, allowing Rust functions to be called from JavaScript and vice versa. It also provides tools for binding to browser APIs.
+- [web-extensions](https://crates.io/crates/web-extensions) by [web-extensions-rs](https://github.com/web-extensions-rs) ( _:spider_web:_ )
+- [web-extensions-sys](https://github.com/web-extensions-rs/web-extensions-sys) by [web-extensions-rs](https://github.com/web-extensions-rs) ( _:spider_web:_ )
 
-### [web-sys](https://crates.io/crates/web-sys)
+## :blue_book: Basic guides to create browser extension
 
-This crate provides access to all standard browser APIs at the WebIDL level. It allows you to use JavaScript browser APIs in Rust code and use Rust code in JavaScript code.
+- [Course for Beginners](https://www.youtube.com/watch?v=0n809nd4Zu4) by [freeCodeCamp](https://www.youtube.com/@freecodecamp) ( _:movie_camera:_ )
+- [Web extension in Rust](https://www.youtube.com/watch?v=m8DqHZK27X0) by [Karl Grasegger](https://www.youtube.com/@RustVideos) ( _:movie_camera:_ )
+- [Create Chrome Extension](https://www.freecodecamp.org/news/how-to-create-and-publish-a-chrome-extension-in-20-minutes-6dc8395d7153/) by [freeCodeCamp](https://www.freecodecamp.org) ( _:scroll:_ )
 
-This crate by default contains very little when compiled as almost all of its exposed APIs are gated by Cargo features. The exhaustive list of features can be found in `crates/web-sys/Cargo.toml`, but the rule of thumb for `web-sys` is that each type has its own cargo feature (named after the type). Using an API requires enabling the features for all types used in the API, and APIs should mention in the documentation what features they require.
+## :earth_africa: Guides to create cross-browser extension
 
-### [js-sys](https://crates.io/crates/js-sys)
+- [Building a cross-browser extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Build_a_cross_browser_extension) by [Mozilla](https://developer.mozilla.org/en-US/docs/Mozilla) ( _:scroll:_ )
+- [8 Essential Tips](https://smartbear.com/blog/cross-platform-website-development/) by [Alex McPeak](https://smartbear.com/blog/authors/alex-mcpeak/) ( _:scroll:_ )
 
-This crate allows you to use JavaScript APIs in Rust code without the need to use WebIDL. It provides raw bindings to JS global APIs for projects using wasm-bindgen. This crate is handwritten and intended to work in all JS environments like browsers and Node.js.
+## :mag: Examples of browser extensions written in Rust
 
-## Guide
+- [wasm extension template](https://github.com/Mubelotix/wasm-extension-template) by [Mubelotix](https://github.com/Mubelotix) ( _:floppy_disk:_ )
+- [rust web extension talk](https://github.com/grasegger/rust-web-extension-talk) by [Karl Grasegger](https://www.youtube.com/@RustVideos) ( _:floppy_disk:_ )
+- [demo_browser_extention](https://github.com/obox-systems/demo_browser_extention) by [Out of the Box Systems](https://github.com/obox-systems) ( _:floppy_disk:_ )
 
-You can find general documentation about using Rust and WebAssembly together [here](https://rustwasm.github.io/docs/wasm-bindgen/).
+## :books: General guide of creating a browser extension in Rust
 
-## Examples
+1. [Create your project and implement your extension functions.](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html)
+2. [Compile your project into WebAssembly.](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm)
+3. [Create a `manifest.json` file.](https://web.dev/add-manifest/) This file is used to tell the browser about how it should behave when the extansion is installed.
+4. [Create a `popup.html` file.](https://www.w3schools.com/howto/howto_js_popup.asp) This file is used to set up all components of the extansion.
+5. Create a `script.js` file and use your Rust functions in it.
+6. [Install your extension in the browser.](#globe_with_meridians-how-to-install-your-browser-extension)
 
-### [wasm extension template](https://github.com/Mubelotix/wasm-extension-template)
+## :globe_with_meridians: How to install your browser extension
 
-An easy-to-use template for Rust web extensions. The Rust code is compiled to WASM and ran as a content script.
+- [Google Chrome](https://support.google.com/chrome_webstore/answer/2664769?hl=en)
+- [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension)
+- [Safari](https://developer.apple.com/documentation/safariservices/safari_web_extensions/running_your_safari_web_extension)
+- [Opera](https://www.thecoderworld.com/install-and-manage-extensions-on-opera-browser/)
+- [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading)
 
-This template allows you to generate a "Hello World" web extension running a Rust program compiled to WASM.
-The program will be executed as a content script, without the need of being injected into the page.
 
-Supports both manifest v2 and v3.
 
-### [rust web extension talk](https://github.com/grasegger/rust-web-extension-talk)
-
-The skeleton of a web extension, that can manipulate websites to another liking. Including a small dive into a comfortable build setup for a full-blown web extension.
-
-You can find more information about this project in this [video](https://www.youtube.com/watch?v=m8DqHZK27X0)
-
-### [Addonis](https://github.com/TheAdnan/Addonis)
-
-Firefox add-on skeleton generator made in Rust.
