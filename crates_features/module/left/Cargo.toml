@@ -1,0 +1,12 @@
+[package]
+name = "left"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[features]
+a = []
+b = []
+enabled = []
+default = [ "enabled", "a", "b" ]

@@ -1,0 +1,22 @@
+[workspace]
+resolver = "2"
+members = [
+  "module/*",
+]
+default-members = [ "module/front" ]
+
+[workspace.dependencies.left]
+path = "module/left"
+default-features = false
+
+[workspace.dependencies.right]
+path = "module/right"
+default-features = false
+
+[workspace.dependencies.root]
+path = "module/root"
+default-features = false
+
+[workspace.dependencies.front]
+path = "module/front"
+default-features = false

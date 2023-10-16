@@ -1,0 +1,15 @@
+[package]
+name = "root"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+left = { workspace = true }
+right = { workspace = true }
+
+[features]
+a = [ "left/a", "right/a" ]
+b = [ "left/b", "right/b" ]
+left = [ "left/enabled" ]
+right = [ "right/enabled" ]
+default = [ "a", "b", "left", "right" ]

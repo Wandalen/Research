@@ -1,0 +1,16 @@
+[package]
+name = "front"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+root = { workspace = true }
+
+[features]
+a = [ "root/a" ]
+b = [ "root/b" ]
+left = [ "root/left" ]
+right = [ "root/right" ]
+default = []
+# default = [ "right", "b" ]
+# default = [ "a", "b", "left", "right" ]
